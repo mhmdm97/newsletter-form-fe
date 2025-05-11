@@ -154,11 +154,15 @@ const SubscriberForm = () => {
     return (
         <form onSubmit={handleSubmit}>
             {successMessage && (
-                <div className="success-message">{successMessage}</div>
+                <div className="success-message mb-6">
+                    <p>{successMessage}</p>
+                </div>
             )}
             
             {errors.submit && (
-                <div className="error-message">{errors.submit}</div>
+                <div className="bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-200 p-3 rounded-md mb-4">
+                    <p>{errors.submit}</p>
+                </div>
             )}
             
             <FormField
@@ -189,28 +193,30 @@ const SubscriberForm = () => {
                 error={errors.phoneNumber}
             />
             
-            <div className="form-group">
-                <label>I am a:</label>
-                <div className="radio-group">
-                    <label>
+            <div className="form-group mb-6">
+                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">I am a:</label>
+                <div className="flex space-x-6">
+                    <label className="inline-flex items-center">
                         <input
                             type="radio"
                             name="type"
                             value={SubscriberType.HomeBuilder}
                             checked={formData.type === SubscriberType.HomeBuilder}
                             onChange={handleChange}
+                            className="h-4 w-4 border-gray-300 text-blue-600 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700"
                         />
-                        Home Builder
+                        <span className="ml-2 text-gray-700 dark:text-gray-300">Home Builder</span>
                     </label>
-                    <label>
+                    <label className="inline-flex items-center">
                         <input
                             type="radio"
                             name="type"
                             value={SubscriberType.HomeBuyer}
                             checked={formData.type === SubscriberType.HomeBuyer}
                             onChange={handleChange}
+                            className="h-4 w-4 border-gray-300 text-blue-600 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700"
                         />
-                        Home Buyer
+                        <span className="ml-2 text-gray-700 dark:text-gray-300">Home Buyer</span>
                     </label>
                 </div>
             </div>

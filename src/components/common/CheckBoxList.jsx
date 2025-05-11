@@ -28,20 +28,31 @@ const CheckBoxList = ({
   };
 
   return (
-    <div className="form-group">
-      {title && <h3>{title}</h3>}
-      {items.map(item => (
-        <div key={item[idKey]}>
-          <label>
-            <input
-              type="checkbox"
-              checked={selectedItems.includes(item[idKey])}
-              onChange={() => handleItemChange(item[idKey])}
-            />
-            {item[labelKey]}
-          </label>
-        </div>
-      ))}
+    <div className="mb-4">
+      {title && <h3 className="text-md font-medium text-gray-700 dark:text-gray-300 mb-2">{title}</h3>}
+      <div className="space-y-2">
+        {items.map(item => (
+          <div key={item[idKey]} className="flex items-start">
+            <div className="flex items-center h-5">
+              <input
+                id={`checkbox-${item[idKey]}`}
+                type="checkbox"
+                checked={selectedItems.includes(item[idKey])}
+                onChange={() => handleItemChange(item[idKey])}
+                className="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:checked:bg-blue-500"
+              />
+            </div>
+            <div className="ml-3 text-sm">
+              <label 
+                htmlFor={`checkbox-${item[idKey]}`}
+                className="font-medium text-gray-700 dark:text-gray-300 cursor-pointer"
+              >
+                {item[labelKey]}
+              </label>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

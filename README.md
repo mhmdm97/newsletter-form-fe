@@ -62,20 +62,6 @@ To get started with the project, follow these steps:
 
 The application will be available at `http://localhost:3000`.
 
-## API Integration
-
-The application consumes the following API endpoints:
-
-- **GET /api/CommunicationPreference**: Fetches communication preferences.
-- **GET /api/Interest**: Fetches interests.
-- **POST /api/Subscriber**: Submits subscriber information.
-
-Make sure to configure the API base URL in the `.env` file if needed.
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a pull request or open an issue for any suggestions or improvements.
-
 ## License
 
 This project is licensed under the MIT License.

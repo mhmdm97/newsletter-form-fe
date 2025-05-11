@@ -20,6 +20,11 @@ export const getSubscriberById = async (id) => {
   return response.data;
 };
 
+export const getSubscribers = async () => {
+  const response = await apiClient.get('/Subscriber');
+  return response.data;
+};
+
 export const deleteSubscriber = async (id) => {
   const response = await apiClient.delete(`/Subscriber/${id}`);
   return response.data;
